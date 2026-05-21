@@ -17,24 +17,24 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
     <Card padding="md">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap mb-1">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-sm font-semibold text-[var(--text-primary)]">
               {lesson.subject}
             </span>
             <Badge label={label} variant={variant} />
           </div>
-          <p className="text-sm text-[var(--text-secondary)]">{lesson.teacherName}</p>
+          <p className="text-xs text-[var(--text-muted)] mt-1">{lesson.teacherName}</p>
         </div>
       </div>
       <div className="mt-3 pt-3 border-t border-[var(--border-primary)] flex items-center gap-4">
         <div className="flex items-center gap-1.5">
-          <CalendarDays size={12} className="text-[var(--text-muted)]" />
+          <CalendarDays size={11} className="text-[var(--text-muted)]" />
           <span className="text-xs text-[var(--text-muted)]">{lesson.date}</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <Clock size={12} className="text-[var(--text-muted)]" />
+          <Clock size={11} className="text-[var(--text-muted)]" />
           <span className="text-xs text-[var(--text-muted)]">
-            {lesson.time} — {lesson.duration} dk
+            {lesson.time} · {lesson.duration} dk
           </span>
         </div>
       </div>
@@ -46,32 +46,30 @@ export default function LessonsPage() {
   return (
     <AppShell>
       <div className="mb-8">
-        <h1 className="text-2xl font-semibold text-[var(--text-primary)] tracking-tight">
+        <p className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest mb-1">
+          Takip
+        </p>
+        <h1 className="text-[26px] font-semibold text-[var(--text-primary)] tracking-tight">
           Derslerim
         </h1>
-        <p className="text-[var(--text-secondary)] text-sm mt-1">
-          Yaklaşan ve geçmiş derslerini buradan takip edebilirsin.
-        </p>
       </div>
 
-      {/* Upcoming */}
       <section className="mb-8">
-        <h2 className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-3">
-          Yaklaşan Dersler
-        </h2>
-        <div className="space-y-3">
+        <p className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest mb-3">
+          Yaklaşan
+        </p>
+        <div className="space-y-2">
           {mockUpcomingLessons.map((lesson) => (
             <LessonCard key={lesson.id} lesson={lesson} />
           ))}
         </div>
       </section>
 
-      {/* Past */}
       <section>
-        <h2 className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-3">
-          Geçmiş Dersler
-        </h2>
-        <div className="space-y-3">
+        <p className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest mb-3">
+          Geçmiş
+        </p>
+        <div className="space-y-2">
           {mockPastLessons.map((lesson) => (
             <LessonCard key={lesson.id} lesson={lesson} />
           ))}
