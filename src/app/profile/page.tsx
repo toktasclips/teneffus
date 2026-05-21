@@ -12,26 +12,26 @@ export default function ProfilePage() {
 
   return (
     <AppShell>
-      <div className="mb-8">
-        <p className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest mb-1">
-          Hesap
-        </p>
-        <h1 className="text-[26px] font-semibold text-[var(--text-primary)] tracking-tight">
+      <div className="mb-10 md:mb-12">
+        <h1 className="text-3xl md:text-4xl font-semibold text-[var(--text-primary)] tracking-tight mb-2">
           Profil
         </h1>
+        <p className="text-base text-[var(--text-secondary)]">
+          Hesap bilgilerini görüntüle ve güncelle.
+        </p>
       </div>
 
       {/* Student info */}
       <Card padding="lg" className="mb-3">
         <div className="flex items-center gap-4 mb-5">
-          <div className="w-12 h-12 rounded-2xl bg-[var(--bg-primary)] border border-[var(--border-primary)] flex items-center justify-center shrink-0">
-            <User size={18} className="text-[var(--text-muted)]" />
+          <div className="w-14 h-14 rounded-2xl bg-[var(--bg-primary)] border border-[var(--border-primary)] flex items-center justify-center shrink-0">
+            <User size={20} className="text-[var(--text-muted)]" />
           </div>
           <div>
-            <p className="text-base font-semibold text-[var(--text-primary)]">
+            <p className="text-xl font-semibold text-[var(--text-primary)]">
               {student.name}
             </p>
-            <p className="text-xs text-[var(--text-muted)] mt-0.5">{student.email}</p>
+            <p className="text-sm text-[var(--text-secondary)] mt-0.5">{student.email}</p>
           </div>
         </div>
 

@@ -15,18 +15,16 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
   const { label, variant } = statusLabel(lesson.status);
   return (
     <Card padding="md">
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex items-start justify-between gap-3 mb-4">
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sm font-semibold text-[var(--text-primary)]">
-              {lesson.subject}
-            </span>
-            <Badge label={label} variant={variant} />
-          </div>
-          <p className="text-xs text-[var(--text-muted)] mt-1">{lesson.teacherName}</p>
+          <p className="text-base font-semibold text-[var(--text-primary)] mb-1">
+            {lesson.subject}
+          </p>
+          <p className="text-sm text-[var(--text-secondary)]">{lesson.teacherName}</p>
         </div>
+        <Badge label={label} variant={variant} />
       </div>
-      <div className="mt-3 pt-3 border-t border-[var(--border-primary)] flex items-center gap-4">
+      <div className="pt-4 border-t border-[var(--border-primary)] flex items-center gap-5">
         <div className="flex items-center gap-1.5">
           <CalendarDays size={11} className="text-[var(--text-muted)]" />
           <span className="text-xs text-[var(--text-muted)]">{lesson.date}</span>
@@ -45,20 +43,20 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
 export default function LessonsPage() {
   return (
     <AppShell>
-      <div className="mb-8">
-        <p className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest mb-1">
-          Takip
-        </p>
-        <h1 className="text-[26px] font-semibold text-[var(--text-primary)] tracking-tight">
+      <div className="mb-10 md:mb-12">
+        <h1 className="text-3xl md:text-4xl font-semibold text-[var(--text-primary)] tracking-tight mb-2">
           Derslerim
         </h1>
+        <p className="text-base text-[var(--text-secondary)]">
+          Yaklaşan ve geçmiş derslerinin tamamı burada.
+        </p>
       </div>
 
-      <section className="mb-8">
-        <p className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest mb-3">
+      <section className="mb-10">
+        <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-4">
           Yaklaşan
         </p>
-        <div className="space-y-2">
+        <div className="space-y-3">
           {mockUpcomingLessons.map((lesson) => (
             <LessonCard key={lesson.id} lesson={lesson} />
           ))}
@@ -66,10 +64,10 @@ export default function LessonsPage() {
       </section>
 
       <section>
-        <p className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest mb-3">
+        <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-4">
           Geçmiş
         </p>
-        <div className="space-y-2">
+        <div className="space-y-3">
           {mockPastLessons.map((lesson) => (
             <LessonCard key={lesson.id} lesson={lesson} />
           ))}
